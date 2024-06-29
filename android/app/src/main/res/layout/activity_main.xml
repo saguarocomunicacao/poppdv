@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valor" />
+
+        <EditText
+            android:id="@+id/valor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Digite o valor da compra"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_tok_venda_tnx"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:textColor="@color/gray"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:text="CREDITO PARCELADO" />
+
+        <Button
+            android:id="@+id/btn_tok_reimprimir"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:textColor="@color/gray"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="REIMPRESSÃO" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_tok_reversal"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:textColor="@color/gray"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Estornar" />
+
+
+        <Button
+            android:id="@+id/btn_tok_pagar_debito"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:textColor="@color/gray"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Pagar com Débito" />
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_voucher"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:textColor="@color/gray"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Voucher"
+            android:elevation="0dp" />
+
+
+        <Button
+            android:id="@+id/btn_credito_vista"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:onClick="openPaymentFragmentCreditoVista"
+            android:layout_weight="1"
+            android:textColor="@color/gray"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Credito a vista" />
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_credito_parcelado_emissor"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:textColor="@color/gray"
+            android:onClick="openPaymentFragmentCreditoEmissor"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Crédito parcelado c/ juros" />
+
+
+        <Button
+            android:id="@+id/btnPix"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:text="PIX"
+            android:textColor="@color/gray" />
+
+
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txtResponse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/PVNumber"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/PVNumberLegend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:text="PV: "
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/PVNumberText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/PVNumberLegend"
+            android:text="XXXXXXXX"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+
+        <Button
+            android:id="@+id/btnPVNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:padding="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/PVNumberLegend"
+            android:text="Recuperar Número do PV"/>
+
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rlReceipt"
+        android:padding="10dp"
+        android:visibility="invisible"
+        android:background="#FEFDCD"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+            android:text="COMPROVANTE DE VENDA"/>
+
+        <TextView
+            android:id="@+id/lblNomeLoja"
+            android:layout_below="@id/txtTitulo"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Nome Loja"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/NomeLojaValue"
+            android:layout_below="@id/txtTitulo"
+            android:layout_toRightOf="@id/lblNomeLoja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXX"/>
+
+
+        <TextView
+            android:id="@+id/CNPJ"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/lblNomeLoja"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="CNPJ Estab"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/CNPJValue"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/CNPJ"
+            android:layout_below="@id/lblNomeLoja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXX"/>
+
+
+        <TextView
+            android:id="@+id/Tipo"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/CNPJ"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="CNPJ Estab"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/TipoValue"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/Tipo"
+            android:layout_below="@id/CNPJ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXX"/>
+
+
+        <TextView
+            android:id="@+id/Valor"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/Tipo"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Valor"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/ValorValue"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/Valor"
+            android:layout_below="@id/Tipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXX"/>
+
+        <TextView
+            android:id="@+id/NSU"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/Valor"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="NSU"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/NSUValue"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/NSU"
+            android:layout_below="@id/Valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXX"/>
+
+
+        <TextView
+            android:id="@+id/Parcela"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/NSU"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Qtd. Parcelas"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/ParcelaValue"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/Parcela"
+            android:layout_below="@id/NSU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXX"/>
+
+
+        <TextView
+            android:id="@+id/ValorParcela"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/ParcelaValue"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Vlr. Parcela"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/ValorParcelaValue"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/ValorParcela"
+            android:layout_below="@id/Parcela"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXX"/>
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
+
+</ScrollView>
